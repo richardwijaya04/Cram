@@ -1,140 +1,146 @@
-# Cram: Your Smart Study Progress Tracker 🚀
+# Cram: Advanced Study Progress & Performance Tracker for iOS 🚀
 
-[![Swift Version](https://img.shields.io/badge/Swift-5.9-orange.svg)](https://swift.org/)
-[![Platform](https://img.shields.io/badge/Platform-iOS%2016%2B-blue.svg)](https://developer.apple.com/ios/)
+[![Swift Version](https://img.shields.io/badge/Swift-5.9+-orange.svg)](https://swift.org/)
+[![Platform](https://img.shields.io/badge/Platform-iOS%2016+-blue.svg)](https://developer.apple.com/ios/)
 [![SwiftUI](https://img.shields.io/badge/UI-SwiftUI-purple.svg)](https://developer.apple.com/xcode/swiftui/)
 [![Architecture](https://img.shields.io/badge/Architecture-MVVM-green.svg)](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
-[![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)](LICENSE) <p align="center">
-  <img src="LINK_KE_SCREENSHOT_UTAMA_ATAU_LOGO_CRAM.png" alt="Cram App Showcase" width="300"/>
+[![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)](LICENSE.md)
+
+<p align="center">
+  <img src="YOUR_LINK_TO_MAIN_APP_SHOWCASE_IMAGE_OR_GIF.png" alt="Cram Application Showcase" width="350"/>
   </p>
 
-Cram adalah aplikasi iOS modern dan intuitif yang dirancang untuk membantu siswa dan pembelajar melacak kemajuan studi mereka secara efektif dan menyenangkan. Dengan visualisasi progres yang dinamis dan fitur pencatatan yang mudah, Cram memastikan Anda tetap termotivasi dan fokus pada tujuan belajar Anda.
+Cram is a meticulously engineered iOS application, architected with SwiftUI, designed to empower dedicated learners and professionals in systematically tracking and visualizing their academic and self-directed study progression. It offers a sophisticated, yet remarkably intuitive, platform for granular progress management, detailed session logging, and sustained engagement through intelligent feedback mechanisms.
 
 ---
 
-## ✨ Fitur Unggulan (Key Features)
+## ✨ Core Functionalities & Technical Highlights
 
-* 📊 **Visualisasi Progres Dinamis:** Nikmati progress bar interaktif dengan efek teks yang berubah warna secara _real-time_ seiring kemajuan Anda. Sangat memuaskan!
-* 📚 **Manajemen Tabel & Topik Fleksibel:**
-    * Buat "Tabel" untuk setiap mata pelajaran atau area studi (misalnya, "Persiapan Ujian Kalkulus", "Belajar Bahasa Jepang").
-    * Tambahkan "Topik" di dalam setiap tabel untuk materi atau bab spesifik (misalnya, "Turunan & Integral", "Tata Bahasa Bab 1-5").
-    * Edit dan kelola struktur belajar Anda dengan mudah.
-* ⏱️ **Pencatatan Sesi Belajar Cerdas:**
-    * Catat setiap sesi belajar dengan cepat, pilih topik, dan masukkan persentase kemajuan yang dicapai.
-    * Lihat progres Anda bertambah secara instan.
-* 📜 **Riwayat Progres Detail:**
-    * Setiap sesi belajar dan perubahan progres dicatat dengan timestamp.
-    * Akses riwayat lengkap untuk setiap topik untuk melihat perjalanan belajar Anda.
-* 🔥 **Study Streak (Konsep):**
-    * Dirancang untuk menampilkan jumlah hari belajar berturut-turut, memotivasi konsistensi. *(Logika perhitungan streak kompleks masih dalam pengembangan/penyederhanaan untuk demo ini)*.
-* 💾 **Persistensi Data Lokal Handal:**
-    * Semua tabel, topik, dan riwayat progres Anda tersimpan aman di perangkat menggunakan `Codable` dengan JSON dan `UserDefaults`. Data tidak akan hilang bahkan setelah aplikasi ditutup.
-* 👋 **Onboarding Pengguna yang Ramah:**
-    * Panduan singkat saat pertama kali membuka aplikasi untuk membantu pengguna memulai dengan cepat.
-* 💡 **Integrasi TipKit (iOS 17+):**
-    * Tips kontekstual muncul untuk memandu pengguna dan memperkenalkan fitur secara bertahap.
-* 🎨 **Desain Modern dengan SwiftUI:**
-    * Dibangun sepenuhnya menggunakan SwiftUI, menghasilkan UI yang bersih, responsif, dan _native_ iOS.
-* 🖋️ **Tipografi Elegan:** Menggunakan custom font "Lexend" untuk keterbacaan dan estetika yang lebih baik.
-
----
-
-## 🛠️ Teknologi yang Digunakan (Tech Stack)
-
-* **Bahasa Pemrograman:** Swift 5.9+
-* **UI Framework:** SwiftUI
-* **Arsitektur Pola Desain:** MVVM (Model-View-ViewModel)
-* **Persistensi Data:**
-    * `Codable` protocol untuk serialisasi/deserialisasi data.
-    * Penyimpanan file JSON di direktori Dokumen aplikasi untuk data tabel & topik.
-    * `UserDefaults` untuk data preferensi sederhana (status onboarding, streak, dll.).
-* **Fitur iOS Modern:** TipKit (memerlukan iOS 17+ untuk tampilan tips).
-* **Concurrency:** Penggunaan `Task` untuk operasi asinkron (misalnya, donasi event TipKit).
-* **Manajemen Dependensi:** Swift Package Manager (jika ada dependensi eksternal di masa depan).
+* 📊 **Dynamic Progress Visualization Engine:**
+    * Features an interactive `ProgressBarView` with a distinctive real-time text color transition effect. This is achieved by dynamically re-rendering individual character foreground colors based on their precise geometric coordinates relative to the animated progress indicator, offering an engaging and satisfying user experience.
+* 📚 **Flexible Hierarchical Data Management:**
+    * Enables users to define custom "Tables" (e.g., "Advanced Algorithmics," "CFA Level II Preparation") and nested "Topics" (e.g., "Graph Traversal Algorithms," "Quantitative Methods").
+    * Full CRUD (Create, Read, Update, Delete) operations are supported for both entities, ensuring a highly adaptable study framework.
+* ⏱️ **Intelligent Study Session Logging & Analytics:**
+    * Facilitates precise logging of study sessions, allowing users to allocate percentage-based progress to specific topics.
+    * Calculations ensure progress constraints (0.0 to 1.0) are respected, with changes instantly reflected in the UI.
+* 📜 **Comprehensive Progress Auditing:**
+    * Maintains a detailed, timestamped `history` of all `ProgressUpdateEvent`s for each topic. This allows for meticulous review of learning velocity and historical performance.
+* 🔥 **Study Streak Mechanism (Conceptual Basis):**
+    * Includes the foundational UI and data structure for tracking consecutive study days, designed to enhance user motivation and consistency. *(Advanced temporal logic for streak calculation is an area for future refinement.)*
+* 💾 **Robust Local Data Persistence Architecture:**
+    * Leverages Swift's `Codable` protocol for seamless serialization and deserialization of complex data structures (`Table`, `Topic`, `ProgressUpdateEvent`).
+    * Table data is persisted as a JSON file within the application's sandboxed Documents Directory, ensuring data integrity and resilience.
+    * `UserDefaults` is employed for lightweight storage of user preferences and application state (e.g., onboarding completion, last selected table index).
+* 👋 **Streamlined User Onboarding Experience:**
+    * A guided onboarding sequence, presented conditionally, ensures new users can rapidly understand and utilize the application's core features.
+* 💡 **Contextual Guidance via TipKit (iOS 17+):**
+    * Integrates Apple's TipKit framework to deliver context-sensitive, non-intrusive guidance, enhancing feature discovery and user proficiency.
+* 🎨 **Modern, Performant UI with SwiftUI & MVVM:**
+    * The entire user interface is declaratively constructed using SwiftUI, promoting maintainability and a responsive user experience.
+    * Adheres to the Model-View-ViewModel (MVVM) architectural pattern for a clean separation of concerns, enhancing testability and scalability.
+* 🖋️ **Enhanced Readability with Custom Typography:**
+    * Utilizes the "Lexend" custom font family, selected for its superior legibility and aesthetic qualities, contributing to a polished user interface.
 
 ---
 
-## 📸 Tampilan Aplikasi (Screenshots & GIFs)
+## 🛠️ Technology Stack & Architectural Blueprint
+
+* **Primary Language:** Swift (5.9 and later)
+* **User Interface Framework:** SwiftUI (Declarative, state-driven UI)
+* **Architectural Pattern:** Model-View-ViewModel (MVVM) for robust separation of concerns and testability.
+* **Data Persistence & Serialization:**
+    * `Codable` Protocol: For efficient and type-safe data encoding/decoding.
+    * JSON: Format for structured data storage.
+    * File System: Secure storage of primary data within the app's Documents Directory.
+    * `UserDefaults`: For lightweight storage of application preferences and state.
+* **iOS Native Features:**
+    * TipKit (iOS 17+): For contextual in-app tips.
+    * Custom Fonts: Integrated via application bundle.
+* **Concurrency Model:** Structured Concurrency (`async/await`) for managing asynchronous operations, such as TipKit event donations.
+
+---
+
+## 📸 Application Showcase
 
 <table>
   <tr>
-    <td><img src="readme-assets/dashboard-view.png" alt="Dashboard View" width="200"/></td>
-    <td><img src="readme-assets/add-session-view.png" alt="Add Session View" width="200"/></td>
-    <td><img src="readme-assets/edit-table-view.png" alt="Edit Table View" width="200"/></td>
+    <td><img src="readme-assets/cram-dashboard.png" alt="Cram Dashboard View" width="220"/></td>
+    <td><img src="readme-assets/cram-add-session.png" alt="Cram Add Session Modal" width="220"/></td>
+    <td><img src="readme-assets/cram-edit-table.png" alt="Cram Edit Table Interface" width="220"/></td>
   </tr>
   <tr>
-    <td align="center"><em>Dashboard Utama</em></td>
-    <td align="center"><em>Menambah Sesi Belajar</em></td>
-    <td align="center"><em>Mengedit Tabel</em></td>
+    <td align="center"><em>Main Dashboard Interface</em></td>
+    <td align="center"><em>Log Study Session</em></td>
+    <td align="center"><em>Table Configuration</em></td>
   </tr>
   <tr>
-    <td><img src="readme-assets/topic-history-view.png" alt="Topic History View" width="200"/></td>
-    <td><img src="readme-assets/progressbar-effect.gif" alt="Progress Bar Effect GIF" width="200"/></td>
-    <td><img src="readme-assets/onboarding-view.png" alt="Onboarding View" width="200"/></td>
+    <td><img src="readme-assets/cram-topic-history.png" alt="Cram Topic Progress History" width="220"/></td>
+    <td><img src="readme-assets/cram-progressbar-animation.gif" alt="Dynamic Progress Bar Animation" width="220"/></td>
+    <td><img src="readme-assets/cram-onboarding.png" alt="Cram User Onboarding" width="220"/></td>
   </tr>
   <tr>
-    <td align="center"><em>Riwayat Topik</em></td>
-    <td align="center"><em>Efek Progress Bar Keren!</em></td>
-    <td align="center"><em>Onboarding Pengguna</em></td>
+    <td align="center"><em>Detailed Topic History</em></td>
+    <td align="center"><em>Interactive Progress Bar Effect</em></td>
+    <td align="center"><em>User Onboarding Flow</em></td>
   </tr>
 </table>
 
 ---
 
-## 🚀 Cara Menjalankan Proyek (How to Run)
+## 🚀 Setup & Execution Protocol
 
-1.  **Prasyarat:**
-    * macOS dengan Xcode 15.0 atau lebih baru.
-    * Git terinstal.
-2.  **Clone Repositori:**
+1.  **System Prerequisites:**
+    * macOS (Sonoma or later recommended).
+    * Xcode 15.0 or a subsequent version.
+    * Git version control system.
+2.  **Repository Acquisition:**
     ```bash
-    git clone [https://github.com/](https://github.com/)[NAMA_USER_GITHUB_ANDA]/[NAMA_REPOSITORI_ANDA].git
-    cd [NAMA_REPOSITORI_ANDA]
+    git clone https://github.com/richardwijaya04/Cram.git
+    cd [YOUR_REPOSITORY_NAME]
     ```
-3.  **Buka Proyek:**
-    * Buka file `Cram.xcodeproj` menggunakan Xcode.
-4.  **Pilih Target:**
-    * Pilih simulator iOS (misalnya, iPhone 15 Pro dengan iOS 17.0 untuk melihat TipKit) atau perangkat iOS fisik.
-5.  **Build & Run:**
-    * Tekan `Cmd+R` atau klik tombol Play di Xcode.
+3.  **Project Initialization (Xcode):**
+    * Open the `Cram.xcodeproj` file using Xcode.
+4.  **Target Configuration:**
+    * Select an appropriate iOS Simulator (e.g., iPhone 15 Pro, configured with iOS 17.0 for full TipKit functionality) or a provisioned physical iOS device.
+5.  **Build & Deployment:**
+    * Execute the build and run command (`Cmd+R`) from within the Xcode IDE.
 
 ---
 
-## 🤔 Tantangan & Pembelajaran
+## 🧠 Engineering Insights & Problem-Solving Highlights
 
-* **Implementasi `ProgressBarView` yang Dinamis:** Menciptakan efek teks yang berubah warna secara presisi mengikuti animasi progress bar adalah tantangan menarik. Ini melibatkan kalkulasi posisi karakter dan sinkronisasi dengan state `currentProgress` menggunakan `GeometryReader` dan estimasi lebar karakter.
-* **Manajemen State dengan SwiftUI:** Mengelola alur data dan state antar-View (Dashboard, Modal Create/Edit/Add Session) secara efisien menggunakan `@StateObject`, `@ObservedObject`, dan `@Published` dalam arsitektur MVVM.
-* **Persistensi Data `Codable`:** Mendesain model data (`Table`, `Topic`, `ProgressUpdateEvent`) agar `Codable` dan mengelola proses encoding/decoding (termasuk `Date`) untuk penyimpanan file JSON yang handal.
-* **Logika Pembaruan Histori:** Memastikan bahwa setiap perubahan progres, baik melalui penambahan sesi maupun pengeditan langsung, tercatat dengan benar dalam `history` setiap topik.
+* **Sophisticated `ProgressBarView` Implementation:**
+    * A significant engineering challenge was the development of the dynamic text-coloring effect within the `ProgressBarView`. This necessitated precise geometric calculations using `GeometryReader`, robust character-width estimation algorithms for the "Lexend" font, and efficient state-driven UI updates to ensure a fluid visual transition synchronized with the progress animation.
+* **State Management in a Declarative Paradigm:**
+    * Effectively managing and propagating state across a complex hierarchy of SwiftUI views (Dashboard, Modals for Create/Edit/Add Session, History) was critical. This was addressed through strategic application of `@StateObject`, `@ObservedObject`, and `@Published` property wrappers, ensuring data integrity and responsive UI updates within the MVVM framework.
+* **Resilient Data Persistence with `Codable`:**
+    * Designing the data models (`Table`, `Topic`, `ProgressUpdateEvent`) for `Codable` conformance, including appropriate `Date` encoding/decoding strategies (ISO8601), was paramount for reliable local JSON file storage. Careful error handling was implemented for file I/O and deserialization processes.
+* **Integrity of Historical Progress Data:**
+    * Ensuring that all modifications to a topic's progress—whether through dedicated session logging or direct manipulation during table edits—are accurately captured as immutable `ProgressUpdateEvent`s in the topic's history log. This maintains a verifiable audit trail of learning activities.
 
-Proyek ini secara signifikan meningkatkan pemahaman saya tentang pengembangan aplikasi iOS modern dengan SwiftUI, manajemen state, persistensi data, dan pembuatan UI yang interaktif.
-
----
-
-## 🔮 Rencana Pengembangan Selanjutnya (Future Enhancements)
-
-* [ ] **Sinkronisasi iCloud:** Memungkinkan pengguna menyinkronkan data mereka di berbagai perangkat Apple.
-* [ ] **Widget iOS:** Menampilkan progres atau study streak di Home Screen.
-* [ ] **Notifikasi & Pengingat:** Pengingat kustom untuk sesi belajar.
-* [ ] **Tema Kustomisasi:** Pilihan tema terang/gelap atau aksen warna.
-* [ ] **Grafik & Statistik Progres:** Visualisasi data progres dalam bentuk grafik (mingguan/bulanan).
-* [ ] **Unit Testing & UI Testing:** Meningkatkan kualitas dan keandalan kode.
+This project served as an excellent platform to deepen expertise in modern iOS development practices, including advanced SwiftUI techniques, robust state management strategies, data persistence, and the creation of engaging, interactive user interfaces.
 
 ---
 
-## 🧑‍💻 Kontributor / Pembuat
+## 📈 Strategic Roadmap for Future Iterations
 
-* **[Nama Lengkap Anda]**
-    * GitHub: `[@username_github_anda](https://github.com/[username_github_anda])`
-    * LinkedIn: `[Nama Anda di LinkedIn](LINK_PROFIL_LINKEDIN_ANDA)`
-    * Email: `alamat.email@anda.com` (Opsional)
-
----
-
-## 📄 Lisensi
-
-Proyek ini dilisensikan di bawah Lisensi MIT. Lihat file `LICENSE.md` untuk detailnya.
+* [ ] **Cloud-Based Data Synchronization:** Implementation of iCloud (potentially Core Data with CloudKit) to enable seamless data persistence and synchronization across a user's Apple device ecosystem.
+* [ ] **Enhanced Home Screen Presence:** Development of interactive iOS Widgets, providing users with at-a-glance progress summaries and quick-access functionality.
+* [ ] **Proactive Learning Engagement System:** Integration of a sophisticated local notification framework for customizable study reminders, motivational prompts, and streak maintenance alerts.
+* [ ] **Advanced Analytics & Reporting:** Introduction of a dedicated module for visualizing learning trends, progress velocity, and other key performance indicators through charts and statistical summaries.
+* [ ] **UI Theming & Accessibility Enhancements:** Offering multiple UI themes (e.g., dark mode variants, accent colors) and further refining accessibility features to support a broader range of users.
+* [ ] **Comprehensive Test Coverage:** Implementation of Unit Tests (XCTest) for business logic and UI Tests (XCUITest) to ensure application stability and regression prevention.
 
 ---
 
-Terima kasih telah mengunjungi repositori Cram! Jangan ragu untuk memberikan bintang ⭐ jika Anda merasa proyek ini menarik atau bermanfaat.
+## 👨‍💻 Principal Developer
+
+* **[Richard Wijaya Harianto]**
+    * GitHub: `https://github.com/richardwijaya04`
+    * LinkedIn: `www.linkedin.com/in/richard-wijaya-harianto`
+    * Email: `richardharianto04@gmail.com`
+
+---
+
+Thank you for your interest in Cram. Contributions, suggestions, and feedback are always welcome. If you find this project insightful or valuable, please consider awarding it a star ⭐.
